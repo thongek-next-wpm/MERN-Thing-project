@@ -12,10 +12,6 @@ const app = express();
 
 //middleware
 app.use(express.json());
-app.use((req, res, next) => {
-  console.log(`Req method is ${req.method} & Req URI is ${req.url}`);
-  next();
-});
 
 app.use("/api/notes", notesRoutes);
 /* what is an endpoint?
