@@ -2,6 +2,7 @@ const express = require("express");
 const notesRoutes = require("./routes/noteRoutes.js");
 const { connectDB } = require("./config/db.js");
 const donenv = require("dotenv");
+const cors = require("cors");
 
 donenv.config();
 console.log();
@@ -12,7 +13,7 @@ const app = express();
 
 //middleware
 app.use(express.json());
-
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use("/api/notes", notesRoutes);
 /* what is an endpoint?
 An endpoint is a combination of a URI + method that lets the client
