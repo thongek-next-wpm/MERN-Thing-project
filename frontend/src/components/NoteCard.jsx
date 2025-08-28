@@ -11,7 +11,7 @@ const NoteCard = ({ note, setNotes }) => {
     if (!window.confirm("Are you sure you want to delete this note?")) return;
 
     try {
-      await axios.get("http://localhost:5001/api/notes");
+      await axios.delete(`http://localhost:5001/api/notes/${id}`);
       setNotes((prev) => prev.filter((note) => note._id !== id)); // get rid of the deleted one
       toast.success("Note deleted successfully");
     } catch (error) {
